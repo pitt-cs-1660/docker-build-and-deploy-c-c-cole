@@ -29,6 +29,7 @@ jobs:
 
       - name: build, tag, and push to ecr
         run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 413893068600.dkr.ecr.us-east-1.amazonaws.com
           docker build -t goproject1660 .
           docker tag goproject1660:latest 413893068600.dkr.ecr.us-east-1.amazonaws.com/goproject1660:latest
           docker push 413893068600.dkr.ecr.us-east-1.amazonaws.com/goproject1660:latest
